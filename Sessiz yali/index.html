@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessiz Yalı | Tribünde Coşku, Sokakta Saygı!</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-yellow-500 selection:text-slate-900 pb-20 md:pb-0">
+
+  <!-- Header & Sticky Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-500 to-red-500 flex items-center justify-center text-slate-950 font-bold text-lg shadow-lg shadow-yellow-500/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-volume-xmark"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-lg tracking-tight text-white group-hover:text-yellow-400 transition-colors">Sessiz Yalı</span>
+          <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase">Güzelyalı Kent Hakkı</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#sorun" class="hover:text-yellow-400 transition-colors">Sorun Nedir?</a>
+        <a href="#simulator" class="hover:text-yellow-400 transition-colors">Desibel Simülatörü</a>
+        <a href="#kent-hakki" class="hover:text-yellow-400 transition-colors">Kent Hakkı</a>
+        <a href="#deklarasyon" class="hover:text-yellow-400 transition-colors">Sessiz Dağılma</a>
+        <a href="#ornekler" class="hover:text-yellow-400 transition-colors">Örnekler</a>
+      </nav>
+
+      <!-- Action CTA Desktop -->
+      <div class="hidden md:block">
+        <a href="#anket" class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-slate-950 font-bold px-5 py-2.5 rounded-lg text-sm shadow-md shadow-yellow-500/10 hover:shadow-yellow-500/25 transition-all min-h-[48px]">
+          <span>Ankete Katıl</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Hamburger Button Mobile -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 min-h-[48px] min-w-[48px] flex items-center justify-center" aria-label="Menüyü Aç">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex flex-col justify-between p-6 opacity-0 pointer-events-none transition-all duration-300 md:hidden">
+    <div>
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-volume-xmark text-yellow-400 text-xl"></i>
+          <span class="font-bold text-lg text-white">Sessiz Yalı</span>
+        </div>
+        <button id="close-drawer-btn" class="text-slate-400 hover:text-white p-2 min-h-[48px] min-w-[48px] flex items-center justify-center" aria-label="Menüyü Kapat">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 text-lg font-semibold text-slate-200">
+        <a href="#sorun" class="drawer-link py-3 px-4 rounded-lg hover:bg-slate-900 hover:text-yellow-400 transition-all">Sorun Nedir?</a>
+        <a href="#simulator" class="drawer-link py-3 px-4 rounded-lg hover:bg-slate-900 hover:text-yellow-400 transition-all">Desibel Simülatörü</a>
+        <a href="#kent-hakki" class="drawer-link py-3 px-4 rounded-lg hover:bg-slate-900 hover:text-yellow-400 transition-all">Kent Hakkı</a>
+        <a href="#deklarasyon" class="drawer-link py-3 px-4 rounded-lg hover:bg-slate-900 hover:text-yellow-400 transition-all">Sessiz Dağılma</a>
+        <a href="#ornekler" class="drawer-link py-3 px-4 rounded-lg hover:bg-slate-900 hover:text-yellow-400 transition-all">Örnekler</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-slate-800">
+      <a href="#anket" class="drawer-link flex items-center justify-center gap-2 bg-yellow-500 text-slate-950 font-bold py-3.5 rounded-xl w-full text-center text-base shadow-lg min-h-[48px]">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Ankete Katıl (3 Dakika)</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="mt-16">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-16 lg:py-24 border-b border-slate-800/80 bg-gradient-to-b from-slate-950 to-slate-900">
+      
+      <!-- Background Ambient Soundwave Animation -->
+      <div class="absolute inset-0 opacity-15 pointer-events-none flex items-center justify-center">
+        <div class="sound-wave-container">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          
+          <!-- Academic Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-semibold text-yellow-400 mb-6 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span>NMED 4201 · Yaşar Üniversitesi Bitirme Projesi & İletişim Kampanyası</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none mb-6">
+            Tribünde Coşku, <br>
+            <span class="bg-gradient-to-r from-yellow-400 via-amber-300 to-red-500 bg-clip-text text-transparent">Sokakta Saygı!</span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl mx-auto">
+            Gürsel Aksel Stadyumu çevresindeki maç günü ses kirliliğini (korna terörü ve ses bombaları) azaltmak, Güzelyalı sakinlerinin uykusunu ve dinlenme hakkını korumak için buradayız.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#anket" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-xl shadow-yellow-500/20 transition-all text-base min-h-[48px]">
+              <i class="fa-solid fa-square-poll-vertical text-lg"></i>
+              <span>Araştırma Anketine Katıl (3 Dk)</span>
+            </a>
+            <a href="#deklarasyon" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition-all text-base min-h-[48px]">
+              <i class="fa-solid fa-hand-holding-heart text-red-400"></i>
+              <span>Sessiz Dağılma Sözü Ver</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Impact Metrics (4-Card Grid) -->
+    <section id="sorun" class="py-12 lg:py-16 bg-slate-900 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          
+          <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl relative overflow-hidden group hover:border-yellow-500/50 transition-colors">
+            <div class="text-3xl lg:text-4xl font-extrabold text-yellow-400 mb-1">100+ dB</div>
+            <div class="text-sm font-semibold text-white mb-1">Maç Sonu Sokak Gürültüsü</div>
+            <p class="text-xs text-slate-400">Dar konut sokaklarında yankılanan korna ve patlayıcı seviyesi.</p>
+          </div>
+
+          <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl relative overflow-hidden group hover:border-red-500/50 transition-colors">
+            <div class="text-3xl lg:text-4xl font-extrabold text-red-400 mb-1">%50+</div>
+            <div class="text-sm font-semibold text-white mb-1">Kentsel Stres Etkisi</div>
+            <p class="text-xs text-slate-400">Güzelyalı mahalle sakinlerinde maç günü kronik uykusuzluk oranı.</p>
+          </div>
+
+          <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl relative overflow-hidden group hover:border-yellow-500/50 transition-colors">
+            <div class="text-3xl lg:text-4xl font-extrabold text-amber-400 mb-1">300</div>
+            <div class="text-sm font-semibold text-white mb-1">Hedeflenen Anket Katılımı</div>
+            <p class="text-xs text-slate-400">Saha araştırmamız için toplanacak veriye dayalı kamuoyu verisi.</p>
+          </div>
+
+          <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl relative overflow-hidden group hover:border-purple-500/50 transition-colors">
+            <div class="text-3xl lg:text-4xl font-extrabold text-purple-400 mb-1">3 Hak</div>
+            <div class="text-sm font-semibold text-white mb-1">İnsan Hakları Çerçevesi</div>
+            <p class="text-xs text-slate-400">Saygı, Koruma ve Yerine Getirme ilkeleriyle hak arayışı.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Decibel & Urban Stress Simulator -->
+    <section id="simulator" class="py-16 lg:py-20 bg-slate-950 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">Ses Kirliliğinin Farkını Hissedin</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Gürültünün desibel seviyelerine göre Güzelyalı mahalle halkı üzerindeki etkilerini canlı simülatör ile test edin.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl">
+          
+          <!-- Preset Switcher Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+            <button id="preset-stadium" class="preset-btn py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:border-yellow-500 transition-all min-h-[48px] flex items-center justify-center gap-2">
+              <i class="fa-solid fa-stadium text-yellow-400"></i>
+              <span>Stadyum İçi Coşku (~110 dB)</span>
+            </button>
+            <button id="preset-street" class="preset-btn active py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:border-red-500 transition-all min-h-[48px] flex items-center justify-center gap-2">
+              <i class="fa-solid fa-bullhorn text-red-400"></i>
+              <span>Sokak Arası Korna (~105 dB)</span>
+            </button>
+            <button id="preset-quiet" class="preset-btn py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:border-green-500 transition-all min-h-[48px] flex items-center justify-center gap-2">
+              <i class="fa-solid fa-moon text-green-400"></i>
+              <span>Sessiz Dağılma (~40 dB)</span>
+            </button>
+          </div>
+
+          <!-- Live Meter Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Mevcut Seviye</span>
+              <div id="sim-db-text" class="text-4xl sm:text-5xl font-black text-red-500">105 <span class="text-xl font-bold">dB</span></div>
+            </div>
+            <div id="sim-status-badge" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-red-950/80 text-red-400 border border-red-800/60">
+              Yüksek Risk & Stres
+            </div>
+          </div>
+
+          <!-- Interactive Range Slider -->
+          <div class="mb-8">
+            <input type="range" id="sim-slider" min="30" max="120" value="105" class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-yellow-500 min-h-[48px]">
+            <div class="flex justify-between text-xs font-semibold text-slate-500 mt-2">
+              <span>30 dB (Sessiz Konut)</span>
+              <span>75 dB (İşitme Sınırı)</span>
+              <span>120 dB (Akut Ağrı / Şok)</span>
+            </div>
+          </div>
+
+          <!-- Visual Bar Indicator -->
+          <div class="w-full h-4 bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-700/50 mb-8">
+            <div id="sim-bar" class="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full transition-all duration-300" style="width: 83.3%;"></div>
+          </div>
+
+          <!-- Impacted Vulnerable Groups -->
+          <div class="border-t border-slate-800 pt-6">
+            <h4 class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-4">Etkilenen Hassas Gruplar & Durum</h4>
+            <div id="sim-affected-container" class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/50 flex items-center gap-2.5">
+                <i class="fa-solid fa-baby text-red-400 text-base"></i>
+                <span class="text-slate-200 font-medium">Beşikteki Bebekler</span>
+              </div>
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/50 flex items-center gap-2.5">
+                <i class="fa-solid fa-person-cane text-red-400 text-base"></i>
+                <span class="text-slate-200 font-medium">Yaşlılar & Hastalar</span>
+              </div>
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/50 flex items-center gap-2.5">
+                <i class="fa-solid fa-paw text-red-400 text-base"></i>
+                <span class="text-slate-200 font-medium">Evcil Hayvanlar</span>
+              </div>
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/50 flex items-center gap-2.5">
+                <i class="fa-solid fa-laptop-house text-red-400 text-base"></i>
+                <span class="text-slate-200 font-medium">Dinlenen Sakinler</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Urban Justice & Human Rights Framework (Interactive Tabs) -->
+    <section id="kent-hakki" class="py-16 lg:py-20 bg-slate-900 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold text-yellow-400 uppercase tracking-widest">Hak Temelli Yaklaşım</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-1 mb-3">Bir Gürültü Şikayeti Değil, Kent Hakkı Mücadelesi</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Birleşmiş Milletler ve İnsan Hakları standartları bağlamında projemizin temel sacayakları.</p>
+        </div>
+
+        <!-- Interactive 3-Tab Component -->
+        <div class="max-w-4xl mx-auto">
+          
+          <div class="flex border-b border-slate-800 mb-8 overflow-x-auto no-scrollbar">
+            <button id="tab-btn-1" class="tab-btn active px-6 py-4 font-bold text-sm border-b-2 border-yellow-400 text-yellow-400 whitespace-nowrap min-h-[48px]">
+              1. Saygı (Respect)
+            </button>
+            <button id="tab-btn-2" class="tab-btn px-6 py-4 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap min-h-[48px]">
+              2. Koruma (Protect)
+            </button>
+            <button id="tab-btn-3" class="tab-btn px-6 py-4 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap min-h-[48px]">
+              3. Yerine Getirme (Fulfill)
+            </button>
+          </div>
+
+          <!-- Tab Content Cards -->
+          <div id="tab-content-1" class="tab-panel bg-slate-800/40 border border-slate-700/60 p-6 sm:p-8 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 text-xl shrink-0">
+                <i class="fa-solid fa-house-chimney-user"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-2">Huzur İçinde Yaşama ve Konut Dokunulmazlığı</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Mahallelinin sağlıklı çevrede yaşama, gece uykusunu alma ve konutunda dinlenme hakkına keyfi olarak müdahale edilmemesidir. Futbol coşkusu, mahalle sakinlerinin temel yaşam haklarını gasp etme gerekçesi olamaz.
+                </p>
+                <div class="text-xs text-yellow-400 font-semibold flex items-center gap-2">
+                  <i class="fa-solid fa-check"></i> Odak: Kornaya basmama ve sokaklarda bağırarak dağılmama bilinci.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-content-2" class="tab-panel hidden bg-slate-800/40 border border-slate-700/60 p-6 sm:p-8 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-xl shrink-0">
+                <i class="fa-solid fa-shield-cat"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-2">Kamusal Otoritenin Koruma Sorumluluğu</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Yerel yönetimin ve kolluk kuvvetlerinin, üçüncü şahısların (kontrolsüz araç kornaları, patlayıcı ses bombaları) mahalle halkına verdiği zararı ve ses kirliliğini önleyici tedbirler alma yükümlülüğüdür.
+                </p>
+                <div class="text-xs text-red-400 font-semibold flex items-center gap-2">
+                  <i class="fa-solid fa-check"></i> Odak: Maç sonu dar sokaklarda araç denetimi ve ses bombası yasağı.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-content-3" class="tab-panel hidden bg-slate-800/40 border border-slate-700/60 p-6 sm:p-8 rounded-2xl">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl shrink-0">
+                <i class="fa-solid fa-handshake-angle"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-2">"İyi Komşu" Politikalarının Kurulması</h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Güzelyalı Mahalle Muhtarlığı, belediye ve İzmir Kent Konseyi iş birliğiyle maç günlerine özel ulaşım düzenlemelerinin, yönlendirme panolarının ve taraftar bilgilendirme sistemlerinin hayata geçirilmesidir.
+                </p>
+                <div class="text-xs text-purple-400 font-semibold flex items-center gap-2">
+                  <i class="fa-solid fa-check"></i> Odak: Kurumsal iş birlikleri ve sürdürülebilir kent politikaları.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sessiz Dağılma Deklarasyonu (Interactive Pledge) -->
+    <section id="deklarasyon" class="py-16 lg:py-20 bg-slate-950 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto bg-gradient-to-b from-slate-900 to-slate-950 border border-yellow-500/30 p-8 sm:p-10 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+          
+          <div class="w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fa-solid fa-file-signature"></i>
+          </div>
+
+          <span class="text-xs font-bold text-yellow-400 uppercase tracking-widest">Sessiz Dağılma Deklarasyonu</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-4">Taraftar Taahhüdü</h2>
+
+          <blockquote class="text-slate-300 text-base sm:text-lg italic font-normal mb-8 bg-slate-900/80 p-6 rounded-2xl border border-slate-800">
+            "Göztepe sevgimi tribünde coşkuyla haykırıyor; maç bittiğinde ise kornaya basmayıp, dar sokaklarda sessizce dağılarak Güzelyalı komşularımın uykusuna ve huzuruna saygı duyacağımı taahhüt ediyorum."
+          </blockquote>
+
+          <!-- Pledge Action Button -->
+          <button id="pledge-action-btn" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-slate-950 font-bold px-10 py-4 rounded-xl text-base transition-all shadow-lg shadow-yellow-500/20 min-h-[48px] mb-6">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Söz Veriyorum & İmzala</span>
+          </button>
+
+          <!-- Live Counter -->
+          <div class="flex items-center justify-center gap-2 text-sm text-slate-400 font-medium">
+            <i class="fa-solid fa-users text-yellow-400"></i>
+            <span>Şu ana kadar <strong id="pledge-count-number" class="text-yellow-400 font-extrabold text-base">143</strong> taraftar bu sözü verdi!</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Dünya ve Türkiye Örnekleri (Case Studies) -->
+    <section id="ornekler" class="py-16 lg:py-20 bg-slate-900 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Dünyadan ve Türkiye'den Örnekler</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Futbol coşkusu ile mahalle huzurunun bir arada yaşatılabileceğini kanıtlayan uygulamalar.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          
+          <div class="bg-slate-800/40 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-white text-base">Croke Park "Good Neighbor" Protokolü</h3>
+                  <span class="text-xs text-slate-400">Dublin, İrlanda</span>
+                </div>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                Konut alanının tam ortasında yer alan Croke Park stadyumunda, maç sonlarında mahalle sokaklarına özel ses yönlendirme panoları ve taraftarların toplu taşımaya sessiz yönlendirilmesi sağlanmaktadır.
+              </p>
+            </div>
+            <div class="text-xs font-semibold text-blue-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-info"></i> Sonuç: Mahalle şikayetlerinde %65 azalma.
+            </div>
+          </div>
+
+          <div class="bg-slate-800/40 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-hands-asl-interpreting"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-white text-base">Beşiktaş "Silent Chant" Farkındalığı</h3>
+                  <span class="text-xs text-slate-400">İstanbul, Türkiye</span>
+                </div>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                İşaret diliyle yapılan efsanevi sessiz tezahürat, taraftar grubu coşkusunun gürültü ve ses kirliliği yaratmadan da tüm dünyaya ilham verecek güçlü bir toplumsal mesaj dönüştürülebileceğini gösterdi.
+              </p>
+            </div>
+            <div class="text-xs font-semibold text-red-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-info"></i> Sonuç: Küresel farkındalık ve toplumsal sempati.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Survey Integration Banner -->
+    <section id="anket" class="py-16 lg:py-20 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-yellow-500/40 p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+          
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-3xl mb-6">
+            <i class="fa-solid fa-clipboard-question"></i>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-3">Güzelyalı Sakini veya Taraftar mısınız?</h2>
+          <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8">
+            Maç günlerinde deneyimlediğiniz ses seviyesi, uyku kalitesi ve kentsel stres verilerini araştırma raporumuza katkıda bulunmak için paylaşın.
+          </p>
+
+          <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold px-10 py-4 rounded-xl text-base sm:text-lg shadow-xl shadow-yellow-500/20 transition-all min-h-[48px]">
+            <span>Anketi Başlat (Yaklaşık 3 Dakika)</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center gap-2 text-white font-bold text-base mb-2">
+        <i class="fa-solid fa-graduation-cap text-yellow-400"></i>
+        <span>Yaşar Üniversitesi · Yeni Medya ve İletişim Bölümü</span>
+      </div>
+      <p class="text-slate-400 mb-4">NMED 4201 Bitirme Projesi & Kampanyası &copy; 2026 "Sessiz Yalı"</p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-slate-400 pt-4 border-t border-slate-900">
+        <div><strong>Araştırmacılar:</strong> Tuna Apalı & Erim Doğan</div>
+        <span class="hidden sm:inline">•</span>
+        <div><strong>Paydaş Önerisi:</strong> Güzelyalı Mahalle Muhtarlığı & İzmir Kent Konseyi</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky Bottom CTA Bar -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 border-t border-slate-800 p-3 md:hidden backdrop-blur-lg">
+    <a href="#anket" class="flex items-center justify-center gap-2 bg-yellow-500 text-slate-950 font-bold py-3 px-4 rounded-xl w-full text-center text-sm shadow-lg min-h-[48px]">
+      <i class="fa-solid fa-clipboard-list text-base"></i>
+      <span>Ankete Katıl (3 Dakika)</span>
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
