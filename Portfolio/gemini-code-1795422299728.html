@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erim Doğan | Portfolyo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Acrylic Navigation Bar -->
+  <header class="fluent-nav">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="accent-dot"></span>Erim Doğan
+      </a>
+      <nav class="nav-links">
+        <a href="#about">Hakkımda</a>
+        <a href="#skills">Uzmanlıklar</a>
+        <a href="#projects">Projeler</a>
+        <a href="#contact">İletişim</a>
+      </nav>
+      <button id="theme-toggle" class="fluent-btn-icon" aria-label="Taraf Değiştir">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="fluent-card hero-card">
+        <span class="badge">Yeni Medya & Dijital İçerik Stratejisi</span>
+        <h1>Dijital Deneyimleri <br><span class="highlight-text">Fluent Design</span> İle Şekillendiriyorum</h1>
+        <p>İçerik stratejisi, topluluk yönetimi ve dijital medya üretimi konularında veri odaklı ve estetik çözümler geliştiriyorum.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="fluent-btn fluent-btn-primary">Projeleri İncele</a>
+          <a href="#contact" class="fluent-btn fluent-btn-secondary">İletişime Geç</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2 class="section-title">Hakkımda</h2>
+      <div class="fluent-card about-card">
+        <p>
+          Yeni Medya ve İletişim alanında çalışmalarımı sürdürürken dijital toplulukların dinamiklerini analiz ediyor, dijital yayıncılık ve arayüz tasarımı üzerine projeler üretiyorum. Estetiği, veri odaklı stratejiler ve kullanıcı odaklı erişilebilirlik ilkeleriyle bir araya getirmeyi hedefliyorum.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Uzmanlık Alanları</h2>
+      <div class="grid-container skills-grid">
+        <div class="fluent-card skill-item">
+          <i class="fa-solid fa-bullhorn skill-icon"></i>
+          <h3>İçerik Stratejisi</h3>
+          <p>Yayın planlaması, dijital medya içerik üretimi ve kitle analizi.</p>
+        </div>
+        <div class="fluent-card skill-item">
+          <i class="fa-solid fa-users skill-icon"></i>
+          <h3>Topluluk Yönetimi</h3>
+          <p>Dijital platformlarda canlı yayın organizasyonları ve etkileşim stratejileri.</p>
+        </div>
+        <div class="fluent-card skill-item">
+          <i class="fa-solid fa-pen-ruler skill-icon"></i>
+          <h3>UI/UX Tasarım</h3>
+          <p>Fluent ve Minimalist tasarım sistemlerine uygun modern web arayüzleri.</p>
+        </div>
+        <div class="fluent-card skill-item">
+          <i class="fa-solid fa-chart-line skill-icon"></i>
+          <h3>Veri Analitiği</h3>
+          <p>Dijital performans takibi, erişim analizi ve büyüme metrikleri.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Bento Grid -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Öne Çıkan Projeler</h2>
+      <div class="grid-container projects-grid">
+        <div class="fluent-card project-card featured">
+          <div class="project-tags"><span class="tag">Canlı Yayın & Medya</span></div>
+          <h3>Dijital Topluluk Yayıncılığı</h3>
+          <p>Sosyal medya kanallarında binlerce dinleyiciye ulaşan canlı sesli yayınlar ve içerik yönetimi operasyonları.</p>
+          <a href="#" class="project-link">İncele <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="fluent-card project-card">
+          <div class="project-tags"><span class="tag">Araştırma & UI</span></div>
+          <h3>Sessiz Yalı Araştırması</h3>
+          <p>Stadyum çevresindeki ses kirliliği ve kentsel stres üzerine medya odaklı saha araştırması.</p>
+          <a href="#" class="project-link">İncele <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="fluent-card project-card">
+          <div class="project-tags"><span class="tag">Arayüz Tasarımı</span></div>
+          <h3>SpyLines UI/UX</h3>
+          <p>Web tabanlı bir oyun projesi için tasarlanmış modern lobi arayüzü ve görsel kimlik.</p>
+          <a href="#" class="project-link">İncele <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2 class="section-title">İletişime Geçin</h2>
+      <div class="fluent-card contact-card">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Adınız</label>
+            <input type="text" id="name" class="fluent-input" placeholder="Ad Soyad" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-Posta Adresiniz</label>
+            <input type="email" id="email" class="fluent-input" placeholder="ornek@domain.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Mesajınız</label>
+            <textarea id="message" class="fluent-input fluent-textarea" rows="4" placeholder="Mesajınızı buraya yazın..." required></textarea>
+          </div>
+          <button type="submit" class="fluent-btn fluent-btn-primary">Gönder</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="fluent-footer">
+    <p>&copy; 2026 Erim Doğan. Microsoft Fluent Design System prensipleriyle hazırlanmıştır.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

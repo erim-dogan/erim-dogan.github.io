@@ -1,0 +1,387 @@
+/* ==========================================================================
+   Microsoft Fluent Design System (Fluent 2) Inspired Theme Rules
+   ========================================================================== */
+
+:root[data-theme="dark"] {
+  --bg-base: #202020;
+  --bg-acrylic: rgba(32, 32, 32, 0.75);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(255, 255, 255, 0.18);
+  --text-primary: #ffffff;
+  --text-secondary: #adadad;
+  --accent-color: #0078d4;
+  --accent-hover: #106ebe;
+  --accent-glow: rgba(0, 120, 212, 0.3);
+  --shadow-elevation: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --reveal-glow: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] {
+  --bg-base: #f3f3f3;
+  --bg-acrylic: rgba(243, 243, 243, 0.8);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-border-hover: rgba(0, 0, 0, 0.18);
+  --text-primary: #1b1b1b;
+  --text-secondary: #5d5d5d;
+  --accent-color: #0f6cbd;
+  --accent-hover: #115ea3;
+  --accent-glow: rgba(15, 108, 189, 0.2);
+  --shadow-elevation: 0 8px 24px 0 rgba(0, 0, 0, 0.08);
+  --reveal-glow: rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* --- Acrylic Top Navigation --- */
+.fluent-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--bg-acrylic);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accent-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* --- Fluent Buttons & Controls --- */
+.fluent-btn-icon {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.fluent-btn-icon:hover {
+  background: var(--reveal-glow);
+}
+
+.fluent-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.1, 0.9, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.fluent-btn:active {
+  transform: scale(0.98);
+}
+
+.fluent-btn-primary {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.fluent-btn-primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.fluent-btn-secondary {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--card-border);
+}
+
+.fluent-btn-secondary:hover {
+  background: var(--reveal-glow);
+  border-color: var(--card-border-hover);
+}
+
+/* --- Fluent Cards & Reveal Light Effect --- */
+.fluent-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: var(--shadow-elevation);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.fluent-card::before {
+  content: "";
+  position: absolute;
+  top: var(--mouse-y, -150px);
+  left: var(--mouse-x, -150px);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--reveal-glow) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+
+.fluent-card:hover::before {
+  opacity: 1;
+}
+
+.fluent-card:hover {
+  border-color: var(--card-border-hover);
+}
+
+/* --- Layout & Sections --- */
+.main-content {
+  max-width: 1100px;
+  margin: 100px auto 40px auto;
+  padding: 0 20px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.hero-section {
+  margin-bottom: 60px;
+}
+
+.hero-card {
+  padding: 48px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  background: var(--accent-glow);
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.hero-card h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.highlight-text {
+  color: var(--accent-color);
+}
+
+.hero-card p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+}
+
+/* --- Grids --- */
+.grid-container {
+  display: grid;
+  gap: 20px;
+}
+
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.skill-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 16px;
+}
+
+.skill-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.skill-item p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.projects-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-tags {
+  margin-bottom: 12px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.project-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- Form Controls --- */
+.contact-card {
+  max-width: 650px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.fluent-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-base);
+  border: 1px solid var(--card-border);
+  border-bottom: 2px solid var(--accent-color);
+  border-radius: 4px 4px 0 0;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.fluent-input:focus {
+  background: var(--card-bg);
+  border-bottom-color: var(--accent-hover);
+}
+
+.fluent-textarea {
+  resize: vertical;
+}
+
+/* --- Footer --- */
+.fluent-footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--card-border);
+  background: var(--bg-acrylic);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero-card h1 {
+    font-size: 1.8rem;
+  }
+  .nav-links {
+    display: none;
+  }
+}
